@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-socket"
+version = "0.1.0"
+description = "Python client for Agent Socket"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "websockets>=14.0",
+]
+
+[project.urls]
+Homepage = "https://agent-socket.ai"
+Repository = "https://github.com/agent-socket/as-python"
