@@ -38,10 +38,20 @@ await socket.connect()
 
 await socket.send("as/target_socket", "hello")
 await socket.send("as/target_socket", {"key": "value"})
-await socket.send("es/ephemeral_socket", [1, 2, 3])
+await socket.send("ch/my_channel", {"event": "update"})
 
 await socket.disconnect()
 ```
+
+### Send to Channels
+
+Channels are multicast groups. Send a message to a channel and all members receive it:
+
+```python
+await socket.send("ch/my_channel_id", {"event": "price_update", "price": 42.0})
+```
+
+The sender must be a member of the channel. Messages are delivered to all other members.
 
 ### Receive Messages
 
@@ -90,9 +100,9 @@ Disconnect from the server.
 
 ### `await socket.send(to, data)`
 
-Send a message to another socket.
+Send a message to a socket or channel.
 
-- `to` — Target socket ID
+- `to` — Target socket or channel ID (e.g. `"as/abc123"`, `"ch/xyz789"`)
 - `data` — Any JSON-serializable value
 
 ### `socket.on_message(handler)`

@@ -126,10 +126,10 @@ class AgentSocket:
         logger.info("disconnected")
 
     async def send(self, to: str, data: Any) -> None:
-        """Send a message to another socket.
+        """Send a message to a socket or channel.
 
         Args:
-            to: Target socket ID (e.g. "as/abc123" or "es/xyz789").
+            to: Target socket or channel ID (e.g. "as/abc123", "ch/xyz789").
             data: Message payload. Can be any JSON-serializable value.
         """
         if self._ws is None or not self._connected.is_set():
