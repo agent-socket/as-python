@@ -129,7 +129,7 @@ class AgentSocket:
         """Send a message to another socket.
 
         Args:
-            to: Target socket ID (e.g. "as/abc123" or "e/xyz789").
+            to: Target socket ID (e.g. "as/abc123" or "es/xyz789").
             data: Message payload. Can be any JSON-serializable value.
         """
         if self._ws is None or not self._connected.is_set():

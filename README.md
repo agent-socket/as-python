@@ -38,7 +38,7 @@ await socket.connect()
 
 await socket.send("as/target_socket", "hello")
 await socket.send("as/target_socket", {"key": "value"})
-await socket.send("e/ephemeral_socket", [1, 2, 3])
+await socket.send("es/ephemeral_socket", [1, 2, 3])
 
 await socket.disconnect()
 ```
